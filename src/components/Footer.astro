@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { footer } = content;
+const year = new Date().getFullYear();
+---
+<footer class="bg-navy border-t border-gold/20 py-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-gold/80 text-xs tracking-[0.2em] uppercase">{footer.tagline}</p>
+    <p class="text-ivory/50 text-xs">© {year} LuxePeak Advisory. {footer.rights}</p>
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { contact } = content;
+---
+<section id="contact" class="bg-navy text-ivory py-20 lg:py-28 relative overflow-hidden">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+    <h2 class="font-display text-3xl lg:text-5xl mb-6 leading-tight">{contact.title}</h2>
+    <p class="text-ivory/70 max-w-2xl mx-auto mb-10 leading-relaxed">{contact.body}</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10 text-sm">
+      <div>
+        <span class="text-gold/80 block text-xs tracking-widest uppercase mb-1">{contact.emailLabel}</span>
+        <a href="mailto:vickyperez@luxepeakadvisory.com" class="hover:text-gold transition-colors">vickyperez@luxepeakadvisory.com</a>
+      </div>
+      <div class="hidden sm:block w-px h-8 bg-gold/30"></div>
+      <div>
+        <span class="text-gold/80 block text-xs tracking-widest uppercase mb-1">{contact.whatsappLabel}</span>
+        <a href="tel:+15128939379" class="hover:text-gold transition-colors">+1 512-893-9379</a>
+      </div>
+    </div>
+    <a href="mailto:vickyperez@luxepeakadvisory.com" class="inline-block bg-magenta text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-magenta/90 transition-colors">
+      {contact.ctaButton}
+    </a>
+  </div>
+</section>

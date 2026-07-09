@@ -1,0 +1,31 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { about } = content;
+---
+<section id="about" class="bg-ivory py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-5">
+      <p class="text-magenta text-xs tracking-[0.2em] uppercase mb-3">{about.eyebrow}</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-navy mb-6">{about.title}</h2>
+      <p class="text-warmgray leading-relaxed mb-8">{about.body}</p>
+      <ul class="space-y-3 mb-8">
+        {about.credentials.map((c) => (
+          <li class="flex items-start gap-3 text-sm text-charcoal">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
+            {c}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+      {about.stats.map((s) => (
+        <div class="border border-gold/30 p-6">
+          <p class="font-display text-navy text-lg mb-2">{s.label}</p>
+          <p class="text-warmgray text-sm leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

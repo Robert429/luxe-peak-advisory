@@ -1,0 +1,17 @@
+---
+interface Props { name: string; class?: string }
+const { name, class: klass = 'w-7 h-7' } = Astro.props;
+const paths: Record<string, string> = {
+  crown: 'M3 8l4 4 5-7 5 7 4-4-2 10H5L3 8zM5 20h14',
+  refresh: 'M4 4v5h5M20 20v-5h-5M4 9a8 8 0 0114-5M20 15a8 8 0 01-14 5',
+  people: 'M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M15 4a4 4 0 010 8M21 20v-2a4 4 0 00-3-3.87M9 12a4 4 0 100-8 4 4 0 000 8z',
+  bell: 'M10 21h4M18 8a6 6 0 10-12 0c0 5-2 6-2 6h16s-2-1-2-6z',
+  gear: 'M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z',
+  mic: 'M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8',
+  chevron: 'M9 18l6-6-6-6',
+};
+const d = paths[name] ?? paths.crown;
+---
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={klass}>
+  <path d={d}></path>
+</svg>

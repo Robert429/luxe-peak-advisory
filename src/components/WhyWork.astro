@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { whyWork } = content;
+---
+<section class="bg-ivory py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-4">
+      <p class="text-magenta text-xs tracking-[0.2em] uppercase mb-3">{whyWork.eyebrow}</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-navy mb-4">{whyWork.title}</h2>
+      <p class="text-warmgray leading-relaxed mb-6">{whyWork.body}</p>
+      <a href="#results" class="inline-block text-sm tracking-wide uppercase text-magenta border-b border-magenta pb-1 hover:text-navy hover:border-navy transition-colors">{whyWork.ctaLabel}</a>
+    </div>
+    <div class="lg:col-span-8 grid sm:grid-cols-2 gap-8">
+      {whyWork.points.map((p) => (
+        <div class="border-t border-gold/40 pt-4">
+          <p class="font-display text-navy text-xl mb-1">{p.label}</p>
+          <p class="text-warmgray text-sm leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

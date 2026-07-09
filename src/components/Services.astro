@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from '../data/content';
+import Icon from './Icon.astro';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { services, servicesIntro } = content;
+---
+<section id="services" class="bg-navy text-ivory py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14">
+      <p class="text-gold text-xs tracking-[0.2em] uppercase mb-3">{servicesIntro.eyebrow}</p>
+      <h2 class="font-display text-3xl lg:text-4xl">{servicesIntro.title}</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/20">
+      {services.map((s) => (
+        <div class="bg-navy p-8 hover:bg-white/[0.03] transition-colors">
+          <div class="text-gold mb-4"><Icon name={s.icon} /></div>
+          <h3 class="font-display text-lg mb-2">{s.title}</h3>
+          <p class="text-ivory/70 text-sm leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

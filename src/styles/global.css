@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+
+@theme {
+  --color-navy: #0B1D33;
+  --color-gold: #D4AF37;
+  --color-magenta: #B21E6B;
+  --color-warmgray: #6B6B6B;
+  --color-ivory: #F7F4EF;
+  --color-charcoal: #2B2B2B;
+
+  --font-display: "Playfair Display", ui-serif, serif;
+  --font-body: "Montserrat", ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}

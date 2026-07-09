@@ -1,0 +1,51 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { nav, altPath, altLabel, lang } = content;
+const links = [
+  { href: '#about', label: nav.about },
+  { href: '#services', label: nav.services },
+  { href: '#results', label: nav.results },
+  { href: '#speaking', label: nav.speaking },
+  { href: '#resources', label: nav.resources },
+  { href: '#contact', label: nav.contact },
+];
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur border-b border-gold/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+    <a href="#home" class="font-display text-gold text-xl tracking-wide">
+      Luxe<span class="text-white">Peak</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8">
+      {links.map((l) => (
+        <a href={l.href} class="text-ivory/90 text-sm tracking-wide hover:text-gold transition-colors">{l.label}</a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href={altPath} class="text-xs tracking-widest text-gold border border-gold/50 rounded-full px-3 py-1 hover:bg-gold hover:text-navy transition-colors">
+        {altLabel}
+      </a>
+      <a href="#contact" class="hidden sm:inline-block text-xs tracking-widest uppercase border border-gold text-gold px-5 py-2 rounded-sm hover:bg-gold hover:text-navy transition-colors">
+        {nav.cta}
+      </a>
+      <button id="menu-toggle" class="lg:hidden text-ivory" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="hidden lg:hidden flex-col bg-navy border-t border-gold/20 px-6 py-4 gap-3">
+    {links.map((l) => (
+      <a href={l.href} class="text-ivory/90 text-sm py-2 hover:text-gold transition-colors">{l.label}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('flex');
+  });
+</script>

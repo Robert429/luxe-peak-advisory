@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import Services from '../../components/Services.astro';
+import WhyWork from '../../components/WhyWork.astro';
+import Outcomes from '../../components/Outcomes.astro';
+import Results from '../../components/Results.astro';
+import Speaking from '../../components/Speaking.astro';
+import Resources from '../../components/Resources.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { es } from '../../data/content';
+---
+<BaseLayout content={es}>
+  <Nav content={es} />
+  <main>
+    <Hero content={es} />
+    <About content={es} />
+    <Services content={es} />
+    <WhyWork content={es} />
+    <Outcomes content={es} />
+    <Results content={es} />
+    <Speaking content={es} />
+    <Resources content={es} />
+    <Contact content={es} />
+  </main>
+  <Footer content={es} />
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+import type { SiteContent } from '../data/content';
+
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+---
+<!doctype html>
+<html lang={content.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{content.meta.title}</title>
+    <meta name="description" content={content.meta.description} />
+    <link rel="alternate" hreflang={content.lang} href={content.path} />
+    <link rel="alternate" hreflang={content.lang === 'en' ? 'es' : 'en'} href={content.altPath} />
+  </head>
+  <body class="bg-ivory text-charcoal font-body antialiased">
+    <slot />
+  </body>
+</html>

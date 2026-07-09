@@ -1,0 +1,30 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { results } = content;
+---
+<section id="results" class="bg-ivory py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-14">
+      <p class="text-magenta text-xs tracking-[0.2em] uppercase mb-3">{results.eyebrow}</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-navy mb-4">{results.title}</h2>
+      <p class="text-warmgray leading-relaxed">{results.intro}</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-6">
+      {results.cases.map((c) => (
+        <div class="bg-white border border-gold/25 p-8 flex flex-col">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <div>
+              <h3 class="font-display text-navy text-xl">{c.property}</h3>
+              <p class="text-warmgray text-xs mt-1">{c.role} · {c.period}</p>
+            </div>
+            <span class="flex-shrink-0 text-xs tracking-wide uppercase bg-navy text-gold px-3 py-1.5 whitespace-nowrap">{c.metric}</span>
+          </div>
+          <p class="text-charcoal/80 text-sm leading-relaxed">{c.summary}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-warmgray/70 text-xs mt-8 italic">{results.recognition}</p>
+  </div>
+</section>

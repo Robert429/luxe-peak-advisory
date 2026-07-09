@@ -1,0 +1,22 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { outcomes } = content;
+---
+<section class="bg-navy text-ivory py-16 lg:py-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-12">
+      <p class="text-gold text-xs tracking-[0.2em] uppercase mb-3">{outcomes.eyebrow}</p>
+      <h2 class="font-display text-3xl lg:text-4xl">{outcomes.title}</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {outcomes.items.map((o) => (
+        <div class="text-center">
+          <p class="font-display text-gold text-xl mb-2">{o.label}</p>
+          <p class="text-ivory/70 text-sm leading-relaxed">{o.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import type { SiteContent } from '../data/content';
+interface Props { content: SiteContent }
+const { content } = Astro.props;
+const { resources } = content;
+---
+<section id="resources" class="bg-ivory py-20 lg:py-24">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <p class="text-magenta text-xs tracking-[0.2em] uppercase mb-3">{resources.eyebrow}</p>
+    <h2 class="font-display text-3xl lg:text-4xl text-navy mb-4">{resources.title}</h2>
+    <p class="text-warmgray leading-relaxed mb-8">{resources.body}</p>
+    <form class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto" data-newsletter-form>
+      <input
+        type="email"
+        required
+        placeholder={resources.placeholder}
+        class="flex-1 border border-gold/40 bg-white px-4 py-3 text-sm text-charcoal focus:outline-none focus:border-magenta"
+      />
+      <button type="submit" class="bg-magenta text-white px-6 py-3 text-xs tracking-widest uppercase hover:bg-magenta/90 transition-colors whitespace-nowrap">
+        {resources.newsletterCta}
+      </button>
+    </form>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // TODO: wire up to real newsletter provider (Mailchimp / ConvertKit / etc.)
+      alert('Newsletter signup is not yet connected to a provider.');
+    });
+  });
+</script>
