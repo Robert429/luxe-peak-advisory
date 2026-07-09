@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import type { SiteContent } from '../data/content';
+import heroImage from '../imgs/VP_nobg_hero.PNG';
 interface Props { content: SiteContent }
 const { content } = Astro.props;
 const { hero } = content;
@@ -19,8 +21,8 @@ const { hero } = content;
     </div>
     <div class="relative">
       <div class="absolute -inset-4 border border-gold/20 rounded-sm hidden lg:block"></div>
-      <img
-        src="/images/vicky-hero.jpg"
+      <Image
+        src={heroImage}
         alt="Vicky Pérez, Founder of LuxePeak Advisory"
         class="relative w-full max-w-md mx-auto rounded-sm shadow-2xl object-cover aspect-[3/4]"
         loading="eager"
