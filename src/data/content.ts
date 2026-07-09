@@ -67,10 +67,9 @@ export const en: SiteContent = {
       { label: 'Trusted Advisor', desc: 'A confidential partner you can rely on to challenge, guide and deliver.' },
     ],
     credentials: [
-      '20+ years in luxury hospitality leadership',
+      '30+ years in luxury hospitality leadership',
       'Cornell School of Hotel Administration',
       'Maxwell Leadership Certified Team member',
-      'VP & First Vocal, COTAL Board of Directors',
     ],
     ctaLabel: 'More About Vicky',
   },
@@ -88,7 +87,7 @@ export const en: SiteContent = {
     body: 'I blend luxury hospitality expertise with leadership development to help you achieve exceptional results — together.',
     ctaLabel: 'View Credentials',
     points: [
-      { label: '20+ Years', desc: 'Executive hospitality leadership across iconic luxury brands and properties.' },
+      { label: '30+ Years', desc: 'Executive hospitality leadership across iconic luxury brands and properties.' },
       { label: 'Global Perspective', desc: 'Experience across diverse markets, cultures and operational environments.' },
       { label: 'Certified Leadership Coach', desc: 'Maxwell Leadership Certified Team member.' },
       { label: 'Trusted Advisor', desc: 'Confidential partner to owners, executives and senior leadership teams.' },
@@ -195,10 +194,9 @@ export const es: SiteContent = {
       { label: 'Asesora de Confianza', desc: 'Una aliada confidencial en quien apoyarse para desafiar, guiar y entregar resultados.' },
     ],
     credentials: [
-      'Más de 20 años en liderazgo de hospitalidad de lujo',
+      'Más de 30 años en liderazgo de hospitalidad de lujo',
       'Cornell School of Hotel Administration',
       'Miembro certificado del equipo Maxwell Leadership',
-      'VP y Primera Vocal, Junta Directiva de COTAL',
     ],
     ctaLabel: 'Más Sobre Vicky',
   },
@@ -216,7 +214,7 @@ export const es: SiteContent = {
     body: 'Combino experiencia en hospitalidad de lujo con desarrollo de liderazgo para ayudarte a alcanzar resultados excepcionales — juntos.',
     ctaLabel: 'Ver Credenciales',
     points: [
-      { label: '20+ Años', desc: 'Liderazgo ejecutivo en hospitalidad en marcas y propiedades de lujo reconocidas.' },
+      { label: '30+ Años', desc: 'Liderazgo ejecutivo en hospitalidad en marcas y propiedades de lujo reconocidas.' },
       { label: 'Perspectiva Global', desc: 'Experiencia en mercados, culturas y entornos operativos diversos.' },
       { label: 'Coach de Liderazgo Certificada', desc: 'Miembro certificado del equipo Maxwell Leadership.' },
       { label: 'Asesora de Confianza', desc: 'Aliada confidencial de propietarios, ejecutivos y equipos de liderazgo senior.' },

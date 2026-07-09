@@ -1,35 +1,65 @@
 ---
-import { Image } from 'astro:assets';
-import type { SiteContent } from '../data/content';
-import heroImage from '../imgs/VP_nobg_hero.PNG';
-interface Props { content: SiteContent }
+import { Image } from "astro:assets";
+import type { SiteContent } from "../data/content";
+import heroImage from "../imgs/VP_nobg_hero.PNG";
+import maxwellBadge from "../imgs/maxwell_nobg.png";
+interface Props {
+  content: SiteContent;
+}
 const { content } = Astro.props;
 const { hero } = content;
 ---
+
 <section id="home" class="relative bg-navy text-ivory pt-20 overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.08),transparent_60%)]"></div>
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-24 relative">
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.08),transparent_60%)]"
+  >
+  </div>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-24 relative"
+  >
     <div>
-      <p class="text-gold text-xs tracking-[0.2em] uppercase mb-4">{hero.eyebrow}</p>
-      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">{hero.title}</h1>
+      <p class="text-gold text-xs tracking-[0.2em] uppercase mb-4">
+        {hero.eyebrow}
+      </p>
+      <h1
+        class="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6"
+      >
+        {hero.title}
+      </h1>
       <p class="text-ivory/80 text-lg max-w-xl mb-8">{hero.subtitle}</p>
       <div class="flex flex-wrap gap-4 mb-8">
-        <a href="#contact" class="bg-magenta text-white px-7 py-3 text-sm tracking-wide uppercase hover:bg-magenta/90 transition-colors">{hero.ctaPrimary}</a>
-        <a href="#services" class="border border-ivory/40 text-ivory px-7 py-3 text-sm tracking-wide uppercase hover:border-gold hover:text-gold transition-colors">{hero.ctaSecondary}</a>
+        <a
+          href="#contact"
+          class="bg-magenta text-white px-7 py-3 text-sm tracking-wide uppercase hover:bg-magenta/90 transition-colors"
+          >{hero.ctaPrimary}</a
+        >
+        <a
+          href="#services"
+          class="border border-ivory/40 text-ivory px-7 py-3 text-sm tracking-wide uppercase hover:border-gold hover:text-gold transition-colors"
+          >{hero.ctaSecondary}</a
+        >
       </div>
       <p class="text-gold/90 font-display italic text-lg">{hero.tagline}</p>
     </div>
     <div class="relative">
-      <div class="absolute -inset-4 border border-gold/20 rounded-sm hidden lg:block"></div>
       <Image
         src={heroImage}
         alt="Vicky Pérez, Founder of LuxePeak Advisory"
         class="relative w-full max-w-md mx-auto rounded-sm shadow-2xl object-cover aspect-[3/4]"
         loading="eager"
       />
-      <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 bg-navy border border-gold/40 px-5 py-3 flex items-center gap-3 shadow-xl">
-        <img src="/images/maxwell-badge.png" alt="Maxwell Leadership Certified" class="w-10 h-10 object-contain" />
-        <span class="text-xs text-ivory/90 tracking-wide max-w-[140px]">{hero.badge}</span>
+      <div
+        class="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 bg-navy border border-gold/40 px-5 py-3 flex items-center gap-3 shadow-xl"
+      >
+        <Image
+          src={maxwellBadge}
+          alt="Maxwell Leadership Certified"
+          class="w-10 h-10 object-contain"
+        />
+        <span class="text-xs text-ivory/90 tracking-wide max-w-[140px]"
+          >{hero.badge}</span
+        >
       </div>
     </div>
   </div>
