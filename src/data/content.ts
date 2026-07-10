@@ -60,9 +60,9 @@ export const en: SiteContent = {
   about: {
     eyebrow: 'About Vicky Pérez',
     title: 'A Partner in Performance and Lasting Impact',
-    body: 'With more than two decades of executive hospitality leadership across brands including The Ritz-Carlton, Marriott, Hyatt, Renaissance, Hard Rock and Radisson, I partner with owners, operators and leadership teams to solve complex challenges, strengthen culture and unlock results that endure.',
+    body: 'With more than three decades of executive leadership in hospitality and tourism — spanning luxury hotel brands including The Ritz-Carlton, Marriott, Hyatt, Renaissance, Hard Rock, Radisson and Hilton, as well as vacation rental and property management companies — I partner with owners, operators and leadership teams across the industry to solve complex challenges, strengthen culture and unlock results that endure.',
     stats: [
-      { label: 'Real-World Experience', desc: 'Deep operational and leadership expertise across luxury hotels and resorts.' },
+      { label: 'Real-World Experience', desc: 'Deep operational and leadership expertise across lifestyle, boutique, full- and select-service hotels, resorts and more.' },
       { label: 'People-First Approach', desc: 'We develop leaders and teams to deliver exceptional experiences.' },
       { label: 'Measurable Results', desc: 'Practical strategies that drive performance, profitability and long-term value.' },
       { label: 'Trusted Advisor', desc: 'A confidential partner you can rely on to challenge, guide and deliver.' },
@@ -192,9 +192,9 @@ export const es: SiteContent = {
   about: {
     eyebrow: 'Sobre Vicky Pérez',
     title: 'Una Aliada en Desempeño e Impacto Duradero',
-    body: 'Con más de dos décadas de liderazgo ejecutivo en hospitalidad —incluyendo marcas como The Ritz-Carlton, Marriott, Hyatt, Renaissance, Hard Rock y Radisson— acompaño a propietarios, operadores y equipos de liderazgo a resolver desafíos complejos, fortalecer la cultura y generar resultados que perduran.',
+    body: 'Con más de tres décadas de liderazgo ejecutivo en hospitalidad y turismo —desde marcas hoteleras de lujo como The Ritz-Carlton, Marriott, Hyatt, Renaissance, Hard Rock, Radisson y Hilton, hasta empresas de administración de propiedades y alquileres vacacionales— acompaño a propietarios, operadores y equipos de liderazgo de toda la industria a resolver desafíos complejos, fortalecer la cultura y generar resultados que perduran.',
     stats: [
-      { label: 'Experiencia Real', desc: 'Profunda experiencia operativa y de liderazgo en hoteles y resorts de lujo.' },
+      { label: 'Experiencia Real', desc: 'Profunda experiencia operativa y de liderazgo en hoteles lifestyle, boutique, de servicio completo y selecto, resorts y más.' },
       { label: 'Enfoque en las Personas', desc: 'Desarrollamos líderes y equipos que ofrecen experiencias excepcionales.' },
       { label: 'Resultados Medibles', desc: 'Estrategias prácticas que impulsan el desempeño, la rentabilidad y el valor a largo plazo.' },
       { label: 'Asesora de Confianza', desc: 'Una aliada confidencial en quien apoyarse para desafiar, guiar y entregar resultados.' },
