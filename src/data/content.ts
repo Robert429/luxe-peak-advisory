@@ -31,7 +31,7 @@ export interface SiteContent {
     podcastNote: string;
   };
   resources: { eyebrow: string; title: string; body: string; newsletterName: string; newsletterCta: string; placeholder: string };
-  contact: { title: string; body: string; emailLabel: string; whatsappLabel: string; ctaButton: string; formFirstName: string; formLastName: string; formEmail: string; formPhone: string; formServiceLabel: string; formServicePlaceholder: string; formServiceOther: string; formMessageLabel: string; formMessagePlaceholder: string; formSend: string };
+  contact: { title: string; body: string; emailLabel: string; whatsappLabel: string; ctaButton: string; formFirstName: string; formLastName: string; formEmail: string; formPhone: string; formServiceLabel: string; formServicePlaceholder: string; formServiceOther: string; formMessageLabel: string; formMessagePlaceholder: string; formSend: string; formSending: string; formSuccess: string; formError: string };
   footer: { tagline: string; rights: string };
 }
 
@@ -163,6 +163,9 @@ export const en: SiteContent = {
     formServiceLabel: 'Service of Interest', formServicePlaceholder: 'Select a service...', formServiceOther: 'General Inquiry / Other',
     formMessageLabel: 'How can we help you?', formMessagePlaceholder: 'Enter your message...',
     formSend: 'Send Message',
+    formSending: 'Sending...',
+    formSuccess: 'Thank you — your message has been received. Vicky will be in touch soon.',
+    formError: 'Something went wrong. Please try again or email us directly.',
   },
   footer: { tagline: 'LEADERSHIP · PEOPLE · PERFORMANCE', rights: 'All rights reserved.' },
 };
@@ -295,6 +298,9 @@ export const es: SiteContent = {
     formServiceLabel: 'Servicio de Interés', formServicePlaceholder: 'Selecciona un servicio...', formServiceOther: 'Consulta General / Otro',
     formMessageLabel: '¿Cómo podemos ayudarte?', formMessagePlaceholder: 'Escribe tu mensaje...',
     formSend: 'Enviar Mensaje',
+    formSending: 'Enviando...',
+    formSuccess: 'Gracias — tu mensaje ha sido recibido. Vicky se pondrá en contacto pronto.',
+    formError: 'Algo salió mal. Por favor intenta de nuevo o escríbenos directamente por correo.',
   },
   footer: { tagline: 'LIDERAZGO · PERSONAS · DESEMPEÑO', rights: 'Todos los derechos reservados.' },
 };

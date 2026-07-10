@@ -3,6 +3,8 @@ import type { SiteContent } from '../data/content';
 interface Props { content: SiteContent }
 const { content } = Astro.props;
 const { contact, services } = content;
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 ---
 <section id="contact" class="bg-navy text-ivory py-20 lg:py-28 relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -21,9 +23,8 @@ const { contact, services } = content;
       </div>
     </div>
     <form
-      action="mailto:vickyperez@luxepeakadvisory.com"
-      method="POST"
-      enctype="text/plain"
+      id="contact-form"
+      data-lang={content.lang}
       class="bg-ivory text-charcoal rounded-sm shadow-2xl p-6 sm:p-8"
     >
       <div class="grid sm:grid-cols-2 gap-5 mb-5">
@@ -58,11 +59,69 @@ const { contact, services } = content;
         <label for="message" class="block text-xs tracking-widest uppercase text-warmgray mb-2">{contact.formMessageLabel}</label>
         <textarea id="message" name="message" rows="5" required placeholder={contact.formMessagePlaceholder} class="w-full border border-gold/30 rounded-sm px-4 py-3 text-sm bg-white focus:outline-none focus:border-gold resize-none"></textarea>
       </div>
+      <p id="contact-form-status" class="hidden text-sm mb-4" role="status" aria-live="polite"></p>
       <div class="flex justify-end">
-        <button type="submit" class="inline-flex items-center gap-3 bg-magenta text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-magenta/90 transition-colors">
+        <button type="submit" class="inline-flex items-center gap-3 bg-magenta text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-magenta/90 transition-colors disabled:opacity-60">
           {contact.formSend}
         </button>
       </div>
     </form>
+
+    <script define:vars={{
+      supabaseUrl,
+      supabaseAnonKey,
+      sending: contact.formSending,
+      success: contact.formSuccess,
+      errorMessage: contact.formError,
+      sendLabel: contact.formSend,
+    }}>
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('contact-form-status');
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = sending;
+        statusEl.classList.add('hidden');
+
+        try {
+          const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+          const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+          const data = new FormData(form);
+          const { error: submitError } = await supabase.from('contact_submissions').insert({
+            first_name: data.get('firstName'),
+            last_name: data.get('lastName'),
+            email: data.get('email'),
+            phone: data.get('phone'),
+            service: data.get('service'),
+            message: data.get('message'),
+            locale: form.dataset.lang,
+            source_page: window.location.href,
+          });
+
+          statusEl.classList.remove('hidden');
+          if (submitError) {
+            console.error('Contact form submission error:', submitError);
+            statusEl.textContent = errorMessage;
+            statusEl.className = 'text-sm mb-4 text-red-600';
+          } else {
+            statusEl.textContent = success;
+            statusEl.className = 'text-sm mb-4 text-green-700';
+            form.reset();
+          }
+        } catch (err) {
+          console.error('Contact form submission error:', err);
+          statusEl.classList.remove('hidden');
+          statusEl.textContent = errorMessage;
+          statusEl.className = 'text-sm mb-4 text-red-600';
+        }
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = sendLabel;
+      });
+    </script>
   </div>
 </section>
