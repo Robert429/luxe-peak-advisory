@@ -1,13 +1,57 @@
 ---
-import type { SiteContent } from '../data/content';
-interface Props { content: SiteContent }
+import type { SiteContent } from "../data/content";
+import linkedinIcon from "../imgs/icons/square-linkedin-brands-solid-full.svg";
+import facebookIcon from "../imgs/icons/square-facebook-brands-solid-full.svg";
+import instagramIcon from "../imgs/icons/square-instagram-brands-solid-full.svg";
+interface Props {
+  content: SiteContent;
+}
 const { content } = Astro.props;
 const { footer } = content;
 const year = new Date().getFullYear();
+const socials = [
+  {
+    icon: linkedinIcon,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/vickyperezaruba/",
+  },
+  {
+    icon: facebookIcon,
+    label: "Facebook",
+    href: "https://www.facebook.com/vickyperezaruba",
+  },
+  {
+    icon: instagramIcon,
+    label: "Instagram",
+    href: "https://www.instagram.com/vickyperezaruba/",
+  },
+];
 ---
+
 <footer class="bg-navy border-t border-gold/20 py-8">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-gold/80 text-xs tracking-[0.2em] uppercase">{footer.tagline}</p>
-    <p class="text-ivory/50 text-xs">© {year} LuxePeak Advisory. {footer.rights}</p>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-10 grid sm:grid-cols-3 items-center gap-6 text-center sm:text-left"
+  >
+    <p class="text-gold/80 text-xs tracking-[0.2em] uppercase">
+      {footer.tagline}
+    </p>
+    <p class="text-ivory/50 text-xs sm:text-center">
+      © {year} LuxePeak Advisory. {footer.rights}
+    </p>
+    <div class="flex items-center justify-center sm:justify-end gap-5">
+      {
+        socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            class="opacity-80 hover:opacity-100 transition-opacity"
+          >
+            <img src={s.icon.src} alt={s.label} class="w-8 h-8" />
+          </a>
+        ))
+      }
+    </div>
   </div>
 </footer>

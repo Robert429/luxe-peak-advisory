@@ -1,8 +1,21 @@
 ---
+import { Image } from 'astro:assets';
 import type { SiteContent } from '../data/content';
+import bestWestern from '../imgs/comp_logos/best-western.png';
+import courtyard from '../imgs/comp_logos/courtyard.png';
+import hamptonInn from '../imgs/comp_logos/hampton-inn.png';
+import hilton from '../imgs/comp_logos/hilton.png';
+import holidayInnExpress from '../imgs/comp_logos/holiday-inn-express.png';
+import holidayInnSuites from '../imgs/comp_logos/holiday-inn-suites.png';
+import marriott from '../imgs/comp_logos/marriott.png';
+import hyattRegency from '../imgs/comp_logos/hyatt-regency.png';
+import residenceInn from '../imgs/comp_logos/residence-inn.png';
+import ritzCarlton from '../imgs/comp_logos/ritz-carlton.png';
+import fairfieldByMarriott from '../imgs/comp_logos/fairfield-by-marriott.png';
 interface Props { content: SiteContent }
 const { content } = Astro.props;
 const { results } = content;
+const brandLogos = [bestWestern, courtyard, hamptonInn, hilton, holidayInnExpress, holidayInnSuites, marriott, hyattRegency, residenceInn, ritzCarlton, fairfieldByMarriott];
 ---
 <section id="results" class="bg-ivory py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -27,4 +40,28 @@ const { results } = content;
     </div>
     <p class="text-warmgray/70 text-xs mt-8 italic">{results.recognition}</p>
   </div>
+  <div class="mt-16 border-t border-gold/20 pt-10">
+    <p class="text-center text-warmgray text-xs tracking-[0.2em] uppercase mb-8">{results.brandsLabel}</p>
+    <div class="marquee-mask overflow-hidden">
+      <div class="marquee-track flex items-center gap-16 w-max">
+        {[...brandLogos, ...brandLogos].map((logo) => (
+          <Image src={logo} alt="" class="h-10 w-auto object-contain grayscale opacity-60 flex-shrink-0" />
+        ))}
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    animation: marquee 45s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+</style>

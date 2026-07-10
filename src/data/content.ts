@@ -23,6 +23,7 @@ export interface SiteContent {
     eyebrow: string; title: string; intro: string;
     cases: { property: string; role: string; period: string; metric: string; summary: string }[];
     recognition: string;
+    brandsLabel: string;
   };
   speaking: {
     eyebrow: string; title: string; body: string; ctaLabel: string;
@@ -30,7 +31,7 @@ export interface SiteContent {
     podcastNote: string;
   };
   resources: { eyebrow: string; title: string; body: string; newsletterName: string; newsletterCta: string; placeholder: string };
-  contact: { title: string; body: string; emailLabel: string; whatsappLabel: string; ctaButton: string };
+  contact: { title: string; body: string; emailLabel: string; whatsappLabel: string; ctaButton: string; formFirstName: string; formLastName: string; formEmail: string; formPhone: string; formServiceLabel: string; formServicePlaceholder: string; formServiceOther: string; formMessageLabel: string; formMessagePlaceholder: string; formSend: string };
   footer: { tagline: string; rights: string };
 }
 
@@ -133,6 +134,7 @@ export const en: SiteContent = {
       },
     ],
     recognition: 'Recognized directly by Hervé Humler, President & CEO of The Ritz-Carlton Hotel Company, for outstanding performance.',
+    brandsLabel: 'Other Brands I\'ve Worked With',
   },
   speaking: {
     eyebrow: 'Speaking, Training & Coaching', title: 'Inspire. Educate. Elevate.',
@@ -157,6 +159,10 @@ export const en: SiteContent = {
     body: 'Ready to elevate performance, strengthen leadership and create lasting impact? Let’s start the conversation.',
     emailLabel: 'Email', whatsappLabel: 'WhatsApp / Direct',
     ctaButton: 'Schedule a Consultation',
+    formFirstName: 'First Name', formLastName: 'Last Name', formEmail: 'Email', formPhone: 'Phone',
+    formServiceLabel: 'Service of Interest', formServicePlaceholder: 'Select a service...', formServiceOther: 'General Inquiry / Other',
+    formMessageLabel: 'How can we help you?', formMessagePlaceholder: 'Enter your message...',
+    formSend: 'Send Message',
   },
   footer: { tagline: 'LEADERSHIP · PEOPLE · PERFORMANCE', rights: 'All rights reserved.' },
 };
@@ -260,6 +266,7 @@ export const es: SiteContent = {
       },
     ],
     recognition: 'Reconocida directamente por Hervé Humler, presidente y CEO de The Ritz-Carlton Hotel Company, por su desempeño excepcional.',
+    brandsLabel: 'Otras Marcas con las que He Trabajado',
   },
   speaking: {
     eyebrow: 'Conferencias, Formación y Coaching', title: 'Inspirar. Educar. Elevar.',
@@ -284,6 +291,10 @@ export const es: SiteContent = {
     body: '¿Lista o listo para elevar el desempeño, fortalecer el liderazgo y crear un impacto duradero? Comencemos la conversación.',
     emailLabel: 'Correo', whatsappLabel: 'WhatsApp / Directo',
     ctaButton: 'Agendar una Consulta',
+    formFirstName: 'Nombre', formLastName: 'Apellido', formEmail: 'Correo', formPhone: 'Teléfono',
+    formServiceLabel: 'Servicio de Interés', formServicePlaceholder: 'Selecciona un servicio...', formServiceOther: 'Consulta General / Otro',
+    formMessageLabel: '¿Cómo podemos ayudarte?', formMessagePlaceholder: 'Escribe tu mensaje...',
+    formSend: 'Enviar Mensaje',
   },
   footer: { tagline: 'LIDERAZGO · PERSONAS · DESEMPEÑO', rights: 'Todos los derechos reservados.' },
 };
