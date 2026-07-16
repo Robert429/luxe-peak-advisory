@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Footer from '../../../components/Footer.astro';
+import { es } from '../../../data/content';
+
+const content = {
+  ...es,
+  path: '/es/cookies/',
+  altPath: '/cookies/',
+  meta: {
+    title: 'Política de Cookies | LuxePeak Advisory',
+    description: 'Cómo utiliza LuxePeak Advisory las cookies y tecnologías similares en este sitio web.',
+  },
+};
+---
+<BaseLayout content={content}>
+  <header class="bg-navy border-b border-gold/20 py-6">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+      <a href="/es/" class="text-gold text-sm tracking-widest uppercase hover:text-ivory transition-colors">← LuxePeak Advisory</a>
+      <a href="/cookies/" class="text-xs tracking-widest text-gold border border-gold/50 rounded-full px-3 py-1 hover:bg-gold hover:text-navy transition-colors">EN</a>
+    </div>
+  </header>
+  <main class="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+    <h1 class="font-display text-3xl lg:text-4xl mb-8 text-navy">Política de Cookies</h1>
+    <div class="space-y-8 text-charcoal leading-relaxed">
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Qué Son las Cookies</h2>
+        <p>Las cookies son pequeños archivos de texto que tu navegador guarda en tu dispositivo al visitar un sitio web. Pueden usarse para recordar preferencias o para entender cómo se utiliza un sitio.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Cookies en Este Sitio</h2>
+        <p>Este sitio web actualmente no utiliza cookies de analítica ni de publicidad. El formulario de contacto envía los datos directamente a nuestro proveedor de base de datos (Supabase) mediante una conexión segura y no depende de cookies de rastreo para funcionar.</p>
+        <p class="mt-2">Si en el futuro incorporamos cookies de analítica, publicidad u otras no esenciales, esta política será actualizada y, cuando la ley lo requiera, se solicitará tu consentimiento antes de instalarlas.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Gestión de Cookies</h2>
+        <p>Puedes controlar o eliminar las cookies desde la configuración de tu navegador en cualquier momento. Bloquearlas no debería afectar tu navegación en este sitio, ya que actualmente ninguna funcionalidad esencial depende de ellas.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Contacto</h2>
+        <p>Preguntas sobre esta política pueden enviarse a <a href="mailto:vickyperez@luxepeakadvisory.com" class="text-magenta hover:underline">vickyperez@luxepeakadvisory.com</a>.</p>
+      </section>
+    </div>
+  </main>
+  <Footer content={content} />
+</BaseLayout>

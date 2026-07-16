@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Footer from '../../../components/Footer.astro';
+import { es } from '../../../data/content';
+
+const content = {
+  ...es,
+  path: '/es/aviso-legal/',
+  altPath: '/legal-notice/',
+  meta: {
+    title: 'Aviso Legal | LuxePeak Advisory',
+    description: 'Aviso legal y condiciones de uso del sitio web de LuxePeak Advisory.',
+  },
+};
+---
+<BaseLayout content={content}>
+  <header class="bg-navy border-b border-gold/20 py-6">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+      <a href="/es/" class="text-gold text-sm tracking-widest uppercase hover:text-ivory transition-colors">← LuxePeak Advisory</a>
+      <a href="/legal-notice/" class="text-xs tracking-widest text-gold border border-gold/50 rounded-full px-3 py-1 hover:bg-gold hover:text-navy transition-colors">EN</a>
+    </div>
+  </header>
+  <main class="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+    <h1 class="font-display text-3xl lg:text-4xl mb-8 text-navy">Aviso Legal</h1>
+    <div class="space-y-8 text-charcoal leading-relaxed">
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Titularidad del Sitio</h2>
+        <p>Este sitio web (luxepeakadvisory.com) es operado por LuxePeak Advisory, liderado por Vicky Pérez. Para cualquier consulta legal relacionada con este sitio, escríbenos a <a href="mailto:vickyperez@luxepeakadvisory.com" class="text-magenta hover:underline">vickyperez@luxepeakadvisory.com</a>.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Propósito</h2>
+        <p>El contenido de este sitio se ofrece con fines informativos sobre los servicios de consultoría hotelera, desarrollo de liderazgo y conferencias de LuxePeak Advisory. No constituye una oferta vinculante ni asesoría profesional hasta que se confirme mediante un acuerdo escrito por separado.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Propiedad Intelectual</h2>
+        <p>Todos los textos, gráficos, logotipos y demás contenido de este sitio son propiedad de LuxePeak Advisory o de sus licenciantes y están protegidos por las leyes de propiedad intelectual aplicables. Ningún contenido puede reproducirse ni distribuirse sin consentimiento previo por escrito.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Limitación de Responsabilidad</h2>
+        <p>Aunque procuramos mantener este sitio preciso y actualizado, LuxePeak Advisory no ofrece garantías sobre la exactitud o integridad de su contenido y no se hace responsable de las pérdidas derivadas de su uso.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Enlaces Externos</h2>
+        <p>Este sitio puede incluir enlaces a sitios de terceros (por ejemplo, redes sociales). LuxePeak Advisory no es responsable del contenido ni de las prácticas de privacidad de dichos sitios externos.</p>
+      </section>
+      <section>
+        <h2 class="font-display text-xl mb-2 text-navy">Contacto</h2>
+        <p>Correo: <a href="mailto:vickyperez@luxepeakadvisory.com" class="text-magenta hover:underline">vickyperez@luxepeakadvisory.com</a><br />Teléfono: <a href="tel:+15128939379" class="text-magenta hover:underline">+1 512-893-9379</a></p>
+      </section>
+    </div>
+  </main>
+  <Footer content={content} />
+</BaseLayout>

@@ -9,6 +9,11 @@ interface Props {
 const { content } = Astro.props;
 const { footer } = content;
 const year = new Date().getFullYear();
+const isEs = content.lang === "es";
+const legalHref = isEs ? "/es/aviso-legal/" : "/legal-notice/";
+const cookiesHref = isEs ? "/es/cookies/" : "/cookies/";
+const legalLabel = isEs ? "Aviso Legal" : "Legal Notice";
+const cookiesLabel = isEs ? "Cookies" : "Cookies";
 const socials = [
   {
     icon: linkedinIcon,
@@ -37,6 +42,11 @@ const socials = [
     </p>
     <p class="text-ivory/50 text-xs sm:text-center">
       © {year} LuxePeak Advisory. {footer.rights}
+      <span class="block sm:inline sm:ml-2">
+        <a href={legalHref} class="hover:text-gold transition-colors">{legalLabel}</a>
+        <span class="mx-1">·</span>
+        <a href={cookiesHref} class="hover:text-gold transition-colors">{cookiesLabel}</a>
+      </span>
     </p>
     <div class="flex items-center justify-center sm:justify-end gap-5">
       {

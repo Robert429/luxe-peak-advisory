@@ -17,8 +17,10 @@ const { content } = Astro.props;
     <link rel="manifest" href="/favicon_io/site.webmanifest" />
     <title>{content.meta.title}</title>
     <meta name="description" content={content.meta.description} />
+    <link rel="canonical" href={`https://luxepeakadvisory.com${content.path}`} />
     <link rel="alternate" hreflang={content.lang} href={content.path} />
     <link rel="alternate" hreflang={content.lang === 'en' ? 'es' : 'en'} href={content.altPath} />
+    <link rel="alternate" hreflang="x-default" href="/" />
   </head>
   <body class="bg-ivory text-charcoal font-body antialiased">
     <slot />

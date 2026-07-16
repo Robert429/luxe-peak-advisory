@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://luxepeakadvisory.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/" />
+  </url>
+  <url>
+    <loc>https://luxepeakadvisory.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/" />
+  </url>
+  <url>
+    <loc>https://luxepeakadvisory.com/legal-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/legal-notice/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/aviso-legal/" />
+  </url>
+  <url>
+    <loc>https://luxepeakadvisory.com/es/aviso-legal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/legal-notice/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/aviso-legal/" />
+  </url>
+  <url>
+    <loc>https://luxepeakadvisory.com/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/cookies/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/cookies/" />
+  </url>
+  <url>
+    <loc>https://luxepeakadvisory.com/es/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luxepeakadvisory.com/cookies/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luxepeakadvisory.com/es/cookies/" />
+  </url>
+</urlset>
