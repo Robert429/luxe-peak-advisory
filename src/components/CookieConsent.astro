@@ -1,0 +1,60 @@
+---
+interface Props {
+  lang: 'en' | 'es';
+}
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    text: 'We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our use of cookies.',
+    cookies: '/cookies/',
+    cookiesLabel: 'Cookie Policy',
+    legal: '/legal-notice/',
+    legalLabel: 'Legal Notice',
+    accept: 'Accept',
+  },
+  es: {
+    text: 'Utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Al continuar navegando, aceptas el uso de cookies.',
+    cookies: '/es/cookies/',
+    cookiesLabel: 'Política de Cookies',
+    legal: '/es/aviso-legal/',
+    legalLabel: 'Aviso Legal',
+    accept: 'Aceptar',
+  },
+}[lang];
+---
+<div
+  id="cookie-consent"
+  class="fixed inset-x-0 bottom-0 z-50 hidden bg-navy border-t border-gold/30 px-6 py-5 lg:px-10"
+>
+  <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-4 lg:gap-8">
+    <p class="text-ivory/90 text-sm leading-relaxed flex-1">
+      {copy.text}
+      {' '}
+      <a href={copy.cookies} class="underline text-gold hover:text-ivory transition-colors">{copy.cookiesLabel}</a>
+      {' · '}
+      <a href={copy.legal} class="underline text-gold hover:text-ivory transition-colors">{copy.legalLabel}</a>
+    </p>
+    <button
+      id="cookie-consent-accept"
+      class="shrink-0 bg-gold text-navy text-sm tracking-widest uppercase px-6 py-2 rounded-full hover:bg-ivory transition-colors"
+    >
+      {copy.accept}
+    </button>
+  </div>
+</div>
+
+<script>
+  const KEY = 'luxepeak-cookie-consent';
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('cookie-consent-accept');
+
+  if (banner && !localStorage.getItem(KEY)) {
+    banner.classList.remove('hidden');
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem(KEY, 'accepted');
+    banner?.classList.add('hidden');
+  });
+</script>
