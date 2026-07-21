@@ -3,8 +3,7 @@ import type { SiteContent } from '../data/content';
 interface Props { content: SiteContent }
 const { content } = Astro.props;
 const { contact, services } = content;
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+const web3formsAccessKey = 'fd2bac8b-bafb-44ab-af50-9df6267a96d2';
 ---
 <section id="contact" class="bg-navy text-ivory py-20 lg:py-28 relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -68,8 +67,7 @@ const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
     </form>
 
     <script define:vars={{
-      supabaseUrl,
-      supabaseAnonKey,
+      web3formsAccessKey,
       sending: contact.formSending,
       success: contact.formSuccess,
       errorMessage: contact.formError,
@@ -87,24 +85,21 @@ const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
         statusEl.classList.add('hidden');
 
         try {
-          const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
-          const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
           const data = new FormData(form);
-          const { error: submitError } = await supabase.from('contact_submissions').insert({
-            first_name: data.get('firstName'),
-            last_name: data.get('lastName'),
-            email: data.get('email'),
-            phone: data.get('phone'),
-            service: data.get('service'),
-            message: data.get('message'),
-            locale: form.dataset.lang,
-            source_page: window.location.href,
+          data.append('access_key', web3formsAccessKey);
+          data.append('subject', `New contact form submission — ${data.get('service')}`);
+          data.append('locale', form.dataset.lang);
+          data.append('source_page', window.location.href);
+
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: data,
           });
+          const result = await response.json();
 
           statusEl.classList.remove('hidden');
-          if (submitError) {
-            console.error('Contact form submission error:', submitError);
+          if (!result.success) {
+            console.error('Contact form submission error:', result.message);
             statusEl.textContent = errorMessage;
             statusEl.className = 'text-sm mb-4 text-red-600';
           } else {
