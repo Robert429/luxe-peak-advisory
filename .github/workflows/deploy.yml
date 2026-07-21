@@ -35,4 +35,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           local-dir: ./dist/
-          server-dir: /domains/luxepeakadvisory.com/public_html/
+          server-dir: /public_html/
